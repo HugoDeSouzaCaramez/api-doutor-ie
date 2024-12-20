@@ -12,7 +12,7 @@ class LivroTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function it_should_create_a_book_with_indices()
+    public function test_it_should_create_a_book_with_indices()
     {
         $user = User::factory()->create();
         Sanctum::actingAs($user);
@@ -67,7 +67,7 @@ class LivroTest extends TestCase
     }
 
     #[Test]
-    public function it_should_validate_required_fields()
+    public function test_it_should_validate_required_fields()
     {
         $user = User::factory()->create();
         Sanctum::actingAs($user);

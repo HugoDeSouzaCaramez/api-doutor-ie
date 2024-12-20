@@ -15,7 +15,7 @@ class ImportarIndicesTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function it_should_dispatch_import_indices_job()
+    public function test_it_should_dispatch_import_indices_job()
     {
         $user = User::factory()->create();
         Sanctum::actingAs($user);
@@ -48,7 +48,7 @@ class ImportarIndicesTest extends TestCase
     }
 
     #[Test]
-    public function it_should_return_404_if_book_not_found()
+    public function test_it_should_return_404_if_book_not_found()
     {
         $user = User::factory()->create();
         Sanctum::actingAs($user);

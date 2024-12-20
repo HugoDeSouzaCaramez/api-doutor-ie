@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: api-doutor-ie-app
+    container_name: api-doutor-ie-app
+    ports:
+      - 8001:8000
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_KEY=
+      - DB_CONNECTION=sqlite
+      - DB_DATABASE=/var/www/html/database/database.sqlite
+    command: >
+      sh -c "if [ ! -f /var/www/html/database/database.sqlite ]; then touch /var/www/html/database/database.sqlite; fi && 
+      php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000"

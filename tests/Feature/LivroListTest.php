@@ -14,7 +14,7 @@ class LivroListTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function it_should_list_books_without_filters()
+    public function test_it_should_list_books_without_filters()
     {
         $user = User::factory()->create();
         Sanctum::actingAs($user);
@@ -28,7 +28,7 @@ class LivroListTest extends TestCase
     }
 
     #[Test]
-    public function it_should_filter_books_by_title()
+    public function test_it_should_filter_books_by_title()
     {
         $user = User::factory()->create();
         Sanctum::actingAs($user);
@@ -44,7 +44,7 @@ class LivroListTest extends TestCase
     }
 
     #[Test]
-    public function it_should_filter_books_by_index_title()
+    public function test_it_should_filter_books_by_index_title()
     {
         $user = User::factory()->create();
         Sanctum::actingAs($user);

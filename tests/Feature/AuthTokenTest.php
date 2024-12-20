@@ -12,7 +12,7 @@ class AuthTokenTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function it_should_return_token_with_valid_credentials()
+    public function test_it_should_return_token_with_valid_credentials()
     {
         $user = User::factory()->create([
             'email' => 'user@example.com',
@@ -29,7 +29,7 @@ class AuthTokenTest extends TestCase
     }
 
     #[Test]
-    public function it_should_return_error_with_invalid_credentials()
+    public function test_it_should_return_error_with_invalid_credentials()
     {
         $user = User::factory()->create([
             'email' => 'user@example.com',
