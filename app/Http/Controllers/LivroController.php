@@ -6,6 +6,7 @@ use App\Models\Indice;
 use App\Models\Livro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\jobs\importarIndicesXml;
 
 class LivroController extends Controller
 {
@@ -54,9 +55,7 @@ class LivroController extends Controller
     {
         $livro = Livro::findOrFail($livroId);
         $xml = simplexml_load_string($request->getContent());
-
         ImportarIndicesXML::dispatch($livro, $xml);
-
         return response()->json(['message' => 'Job de importação disparado'], 202);
     }
 
